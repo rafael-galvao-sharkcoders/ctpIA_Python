@@ -1,0 +1,70 @@
+import tkinter
+from tkinter import *
+import time
+import pyautogui as auto
+
+
+blue = '#53eff9'
+
+screen2 = Tk()
+screen2.title('Registo')
+screen2.geometry('575x500+500+150')
+screen2.wm_resizable(width=False, height=False)
+
+
+label_0 = Label(screen2, text='Registo', font='Times 15')
+label_0.place(x=255, y=45)
+
+label_1 = Label(screen2, text='Nome', font='Times 15')
+label_1.place(x=50, y=100)
+
+input_1 = Entry(screen2, font='Times 15')
+input_1.place(width=350, height=35, x=125, y=100)
+
+label_2 = Label(screen2, text='Endereço', font='Times 15')
+label_2.place(x=22, y=200)
+
+input_2 = Entry(screen2, font='Times 15')
+input_2.place(width=350, height=35, x=125, y=200)
+
+label_3 = Label(screen2, text='Telefone', font='Times 15')
+label_3.place(x=25, y=300)
+
+input_3 = Entry(screen2, font='Times 15')
+input_3.place(width=350, height=35, x=125, y=300)
+
+file_name = 'Safe_Info'
+
+
+def file_creator():
+
+    name = input_1.get()
+    address = input_2.get()
+    phone = input_3.get()
+
+
+    with open('Safe_Info.txt', 'a') as file:
+        file.write(f"Name:{name} \nAddress:{address}  \nPhone Number:{phone}\n\n")
+
+
+
+Button_1 = tkinter.Button(screen2, text='Registar',command = file_creator,font='Times 15', bg=blue)
+Button_1.place(width=350, height=75, x=125, y=370)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+screen2.mainloop()
