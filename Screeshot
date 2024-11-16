@@ -1,0 +1,51 @@
+import tkinter
+import pyautogui as auto
+from tkinter import *
+import time
+
+
+
+auto.screenshot()
+screen = Tk()
+screen.title('Screenshot')
+screen.geometry('500x220+500+150')
+screen.wm_resizable(width=False, height=False)
+
+label_1 = Label(screen, text='Python Screenshot Taker', font='Times 15')
+label_1.place(x=120, y=25)
+
+input_1 = Entry(screen, font='Times 15')
+input_1.place(width=250, height=35, x=125, y=70)
+
+def ptr_screen():
+        screenshot_name = input_1.get()
+        var = auto.screenshot()
+        time.sleep(0.2)
+        var.save(screenshot_name + '.png')
+
+Button_1 = tkinter.Button(screen, text='Take',command=ptr_screen,font='Times 15')
+Button_1.place(width=175, height=75, x=157, y=126)
+
+
+try:
+        var = auto.screenshot()
+        save_path = f"{input_1.get()}.png"
+
+
+except auto.PyAutoGUIException as e:
+        print(f"Pyautogui encontrou um erro em:{e}")
+
+except OSError as d:
+        print(f"Erro ao salvar a screenshot:{d}")
+
+except Exception as f:
+        print(f"Um erro inpesperado aconteu:{f}")
+
+
+
+screen.mainloop()
+
+
+
+
+
