@@ -1,0 +1,40 @@
+import os
+import tkinter as tk
+from tkinter import *
+
+screen = Tk()
+screen.title('File Renamer')
+screen.geometry('575x500+500+150')
+screen.wm_resizable(width=False, height=False)
+
+label_1 = Label(screen, text =f"Directory\nName", font='Times 17')
+label_1.place(x=30, y=96)
+
+input_1 = Entry(screen, font='Times 17')
+input_1.place(width=250, height=40, x=135, y=100)
+
+label_2 = Label(screen, text='File name', font='Times 17')
+label_2.place(x=30, y=162)
+
+input_2 = Entry(screen, font='Times 17')
+input_2.place(width=250, height=40, x=135, y=160)
+
+
+
+
+def file_creator ():
+    file_name = input_1.get()
+    if os.path.exists(f'C:\\{file_name}'):
+        print(f"Não foi possivel criar o ficheiro[{file_name} already exists!]")
+    os.mkdir(f'C:\\{file_name}', True)
+
+
+Button_1 = tk.Button(screen, text='Confirm', command =file_creator, font='Times 17')
+Button_1.place(width=175, height=50, x=389, y=95)
+
+def file():
+
+    os.mkdir(f'C://{file_name}//{E}')
+
+
+screen.mainloop()
