@@ -1,0 +1,25 @@
+import tkinter
+from tkinter import *
+
+screen = Tk()
+screen.title('Recomendador')
+screen.geometry('675x480+500+150')
+screen.wm_resizable(width=False, height=False)
+
+Button_1 = tkinter.Button(screen, text='Musicas',font='Times 16')
+Button_1.place(width=175, height=75, x=50, y=330)
+
+Button_2 = tkinter.Button(screen, text='Filmes',font='Times 16')
+Button_2.place(width=175, height=75, x=265, y=330)
+
+Button_3 = tkinter.Button(screen, text='Livros',font='Times 16')
+Button_3.place(width=175, height=75, x=480, y=330)
+
+label_1 = Label(screen, text='Recomendar...', font='Times 21')
+label_1.place(x=270, y=260)
+
+input_1 = Entry(screen, font='Times 16')
+input_1.place(width=350, height=35, x=70, y=100)
+
+
+screen.mainloop()
