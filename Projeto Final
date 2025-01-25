@@ -1,25 +1,134 @@
 import tkinter
 from tkinter import *
+import pyautogui as auto
 
 screen = Tk()
 screen.title('Recomendador')
-screen.geometry('675x480+500+150')
+screen.geometry('675x300+500+150')
 screen.wm_resizable(width=False, height=False)
 
-Button_1 = tkinter.Button(screen, text='Musicas',font='Times 16')
-Button_1.place(width=175, height=75, x=50, y=330)
 
-Button_2 = tkinter.Button(screen, text='Filmes',font='Times 16')
-Button_2.place(width=175, height=75, x=265, y=330)
+def recomendar_filmes():
+    screen2 = Tk()
+    screen2.title('Recomendador de Filmes')
+    screen2.geometry('675x480+500+150')
+    screen2.wm_resizable(width=False, height=False)
 
-Button_3 = tkinter.Button(screen, text='Livros',font='Times 16')
-Button_3.place(width=175, height=75, x=480, y=330)
+    label_2 = Label(screen2, text='Que tipos de filmes gosta?', font='Times 21')
+    label_2.place(x=200, y=100)
+
+    Button_4 = tkinter.Button(screen2, text='Terror', font='Times 16')
+    Button_4.place(width=175, height=75, x=480, y=150)
+
+    Button_5 = tkinter.Button(screen2, text='Ação', font='Times 16')
+    Button_5.place(width=175, height=75, x=250, y=150)
+
+    Button_6 = tkinter.Button(screen2, text='Comédia', font='Times 16')
+    Button_6.place(width=175, height=75, x=20, y=150)
+
+    Button_7 = tkinter.Button(screen2, text='Drama', font='Times 16')
+    Button_7.place(width=175, height=75, x=480, y=250)
+
+    Button_8 = tkinter.Button(screen2, text='Romance', font='Times 16')
+    Button_8.place(width=175, height=75, x=250, y=250)
+
+    Button_9 = tkinter.Button(screen2, text='Fantasia', font='Times 16')
+    Button_9.place(width=175, height=75, x=20, y=250)
+
+    Button_10 = tkinter.Button(screen2, text='Mistério', font='Times 16')
+    Button_10.place(width=175, height=75, x=480, y=350)
+
+    Button_11= tkinter.Button(screen2, text='Aventura', font='Times 16')
+    Button_11.place(width=175, height=75, x=250, y=350)
+
+    Button_12 = tkinter.Button(screen2, text='Criminal', font='Times 16')
+    Button_12.place(width=175, height=75, x=20, y=350)
+
+def recomendar_livros():
+    screen3 = Tk()
+    screen3.title('Recomendador de Livros')
+    screen3.geometry('675x480+500+150')
+    screen3.wm_resizable(width=False, height=False)
+    label_3 = Label(screen3, text='Que tipos de livros gosta?', font='Times 21')
+    label_3.place(x=200, y=100)
+
+    Button_13 = tkinter.Button(screen3, text='Drama', font='Times 16')
+    Button_13.place(width=175, height=75, x=480, y=150)
+
+    Button_14 = tkinter.Button(screen3, text='Poesia', font='Times 16')
+    Button_14.place(width=175, height=75, x=250, y=150)
+
+    Button_15 = tkinter.Button(screen3, text='Comédia', font='Times 16')
+    Button_15.place(width=175, height=75, x=20, y=150)
+
+    Button_16 = tkinter.Button(screen3, text='Ficção', font='Times 16')
+    Button_16.place(width=175, height=75, x=480, y=250)
+
+    Button_17 = tkinter.Button(screen3, text='Mistério', font='Times 16')
+    Button_17.place(width=175, height=75, x=250, y=250)
+
+    Button_18 = tkinter.Button(screen3, text='Fantasia', font='Times 16')
+    Button_18.place(width=175, height=75, x=20, y=250)
+
+    Button_19 = tkinter.Button(screen3, text='Romance', font='Times 16')
+    Button_19.place(width=175, height=75, x=480, y=350)
+
+    Button_20 = tkinter.Button(screen3, text='Contos', font='Times 16')
+    Button_20.place(width=175, height=75, x=250, y=350)
+
+    Button_21 = tkinter.Button(screen3, text='Biografias', font='Times 16')
+    Button_21.place(width=175, height=75, x=20, y=350)
+def recomendar_musicas():
+    screen4 = Tk()
+    screen4.title('Recomendador de Musicas')
+    screen4.geometry('675x480+500+150')
+    screen4.wm_resizable(width=False, height=False)
+    label_3 = Label(screen4, text='Que estilos de musicas gosta?', font='Times 21')
+    label_3.place(x=200, y=100)
+
+    Button_13 = tkinter.Button(screen4, text='Pop', font='Times 16')
+    Button_13.place(width=175, height=75, x=480, y=150)
+
+    Button_14 = tkinter.Button(screen4, text='Rock', font='Times 16')
+    Button_14.place(width=175, height=75, x=250, y=150)
+
+    Button_15 = tkinter.Button(screen4, text='Jazz', font='Times 16')
+    Button_15.place(width=175, height=75, x=20, y=150)
+
+    Button_16 = tkinter.Button(screen4, text='Clássica', font='Times 16')
+    Button_16.place(width=175, height=75, x=480, y=250)
+
+    Button_17 = tkinter.Button(screen4, text='Metal', font='Times 16')
+    Button_17.place(width=175, height=75, x=250, y=250)
+
+    Button_18 = tkinter.Button(screen4, text='Samba', font='Times 16')
+    Button_18.place(width=175, height=75, x=20, y=250)
+
+    Button_19 = tkinter.Button(screen4, text='Rap', font='Times 16')
+    Button_19.place(width=175, height=75, x=480, y=350)
+
+    Button_20 = tkinter.Button(screen4, text='Opera', font='Times 16')
+    Button_20.place(width=175, height=75, x=250, y=350)
+
+    Button_21 = tkinter.Button(screen4, text='Eletrónica', font='Times 16')
+    Button_21.place(width=175, height=75, x=20, y=350)
+
+Button_1 = tkinter.Button(screen, text='Musicas', command=recomendar_musicas, font='Times 16')
+Button_1.place(width=175, height=75, x=50, y=150)
+
+Button_2 = tkinter.Button(screen, text='Filmes', command=recomendar_filmes, font='Times 16')
+Button_2.place(width=175, height=75, x=265, y=150)
+
+Button_3 = tkinter.Button(screen, text='Livros',command=recomendar_livros, font='Times 16')
+Button_3.place(width=175, height=75, x=480, y=150)
+
+
 
 label_1 = Label(screen, text='Recomendar...', font='Times 21')
-label_1.place(x=270, y=260)
+label_1.place(x=270, y=100)
 
-input_1 = Entry(screen, font='Times 16')
-input_1.place(width=350, height=35, x=70, y=100)
+
+
 
 
 screen.mainloop()
