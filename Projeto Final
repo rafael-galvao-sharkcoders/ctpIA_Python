@@ -1,11 +1,21 @@
 import tkinter
 from tkinter import *
 import pyautogui as auto
+import subprocess
+import os
+from time import sleep
 
 screen = Tk()
 screen.title('Recomendador')
 screen.geometry('675x300+500+150')
 screen.wm_resizable(width=False, height=False)
+
+
+def search_music():
+    sleep(1)
+    subprocess.Popen(["C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"])
+    sleep(1)
+    auto.write("https://music.youtube.com/")
 
 
 def recomendar_filmes():
@@ -17,8 +27,8 @@ def recomendar_filmes():
     label_2 = Label(screen2, text='Que tipos de filmes gosta?', font='Times 21')
     label_2.place(x=200, y=100)
 
-    Button_4 = tkinter.Button(screen2, text='Terror', font='Times 16')
-    Button_4.place(width=175, height=75, x=480, y=150)
+    Button_5 = tkinter.Button(screen2, text='Terror', font='Times 16')
+    Button_5.place(width=175, height=75, x=480, y=150)
 
     Button_5 = tkinter.Button(screen2, text='Ação', font='Times 16')
     Button_5.place(width=175, height=75, x=250, y=150)
@@ -81,37 +91,18 @@ def recomendar_livros():
 def recomendar_musicas():
     screen4 = Tk()
     screen4.title('Recomendador de Musicas')
-    screen4.geometry('675x480+500+150')
+    screen4.geometry('675x300+400+120')
     screen4.wm_resizable(width=False, height=False)
-    label_3 = Label(screen4, text='Que estilos de musicas gosta?', font='Times 21')
-    label_3.place(x=200, y=100)
+    label_3 = Label(screen4, text='Que estilos de musica gosta?', font='Times 21')
+    label_3.place(x=170, y=100)
 
-    Button_13 = tkinter.Button(screen4, text='Pop', font='Times 16')
-    Button_13.place(width=175, height=75, x=480, y=150)
+    input_3 = Entry(screen4, font='Times 16')
+    input_3.place(width=350, height=35, x=170, y=150)
 
-    Button_14 = tkinter.Button(screen4, text='Rock', font='Times 16')
-    Button_14.place(width=175, height=75, x=250, y=150)
+    Button_4 = tkinter.Button(screen4, text='Search', command= search_music(), font='Times 16')
+    Button_4.place(width=175, height=75, x=260, y=200)
 
-    Button_15 = tkinter.Button(screen4, text='Jazz', font='Times 16')
-    Button_15.place(width=175, height=75, x=20, y=150)
 
-    Button_16 = tkinter.Button(screen4, text='Clássica', font='Times 16')
-    Button_16.place(width=175, height=75, x=480, y=250)
-
-    Button_17 = tkinter.Button(screen4, text='Metal', font='Times 16')
-    Button_17.place(width=175, height=75, x=250, y=250)
-
-    Button_18 = tkinter.Button(screen4, text='Samba', font='Times 16')
-    Button_18.place(width=175, height=75, x=20, y=250)
-
-    Button_19 = tkinter.Button(screen4, text='Rap', font='Times 16')
-    Button_19.place(width=175, height=75, x=480, y=350)
-
-    Button_20 = tkinter.Button(screen4, text='Opera', font='Times 16')
-    Button_20.place(width=175, height=75, x=250, y=350)
-
-    Button_21 = tkinter.Button(screen4, text='Eletrónica', font='Times 16')
-    Button_21.place(width=175, height=75, x=20, y=350)
 
 Button_1 = tkinter.Button(screen, text='Musicas', command=recomendar_musicas, font='Times 16')
 Button_1.place(width=175, height=75, x=50, y=150)
