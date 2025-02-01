@@ -5,13 +5,12 @@ import subprocess
 import os
 from time import sleep
 
+yellow = '#FDE56E'
+
 screen = Tk()
 screen.title('Recomendador')
 screen.geometry('675x300+500+150')
 screen.wm_resizable(width=False, height=False)
-
-
-
 
 
 
@@ -82,21 +81,17 @@ def recomendar_musicas():
     Button_4.place(width=175, height=75, x=260, y=200)
 
 
-Button_1 = tkinter.Button(screen, text='Musicas', command=recomendar_musicas, font='Times 16')
+Button_1 = tkinter.Button(screen, text='🎵Musicas🎵', command=recomendar_musicas, font='Times 16')
 Button_1.place(width=175, height=75, x=50, y=150)
 
-Button_2 = tkinter.Button(screen, text='Filmes', command=recomendar_filmes, font='Times 16')
+Button_2 = tkinter.Button(screen, text='🎥Filmes🎥', command=recomendar_filmes, font='Times 16')
 Button_2.place(width=175, height=75, x=265, y=150)
 
-Button_3 = tkinter.Button(screen, text='Livros',command=recomendar_livros, font='Times 16')
+Button_3 = tkinter.Button(screen, text='📚Livros📚',command=recomendar_livros, font='Times 16')
 Button_3.place(width=175, height=75, x=480, y=150)
-
-
 
 label_1 = Label(screen, text='Recomendar...', font='Times 21')
 label_1.place(x=270, y=100)
-
-
 
 
 
