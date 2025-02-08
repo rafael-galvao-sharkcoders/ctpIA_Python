@@ -1,28 +1,33 @@
-import tkinter
+import tkinter as tk
 from tkinter import *
 import pyautogui as auto
 import subprocess
 import os
 from time import sleep
 
-yellow = '#FDE56E'
+# Definindo cores
+light_gray = '#D3D3D3'
+dark_gray = '#A9A9A9'
+white = '#FFFFFF'
+black = '#000000'
 
+# Configurando a tela principal
 screen = Tk()
 screen.title('Recomendador')
 screen.geometry('675x300+500+150')
+screen.configure(bg=dark_gray)
 screen.wm_resizable(width=False, height=False)
-
-
 
 def recomendar_livros():
     screen2 = Tk()
     screen2.title('Recomendador de Livros')
     screen2.geometry('675x300+400+120')
+    screen2.configure(bg=dark_gray)
     screen2.wm_resizable(width=False, height=False)
-    label_2 = Label(screen2, text='Que tipos de livros/autores é que gosta?', font='Times 21')
+    label_2 = Label(screen2, text='Que tipos de livros/autores é que gosta?', font=('Times', 16, 'bold'), bg=dark_gray, fg=black)
     label_2.place(x=60, y=50)
 
-    input_4 = Entry(screen2, font='Times 16')
+    input_4 = Entry(screen2, font=('Times', 16, 'bold'), bg=white, fg=black)
     input_4.place(width=350, height=35, x=170, y=100)
 
     def search_books():
@@ -33,18 +38,19 @@ def recomendar_livros():
         auto.write(f'https://www.google.com/search?udm=36&q={book}', interval=0.05)
         auto.press('Enter')
 
-    Button_5 = Button(screen2, text='Search', command=search_books, font='Times 16')
+    Button_5 = Button(screen2, text='Search', command=search_books, font=('Times', 16, 'bold'), bg=light_gray, fg=black)
     Button_5.place(width=175, height=75, x=260, y=200)
 
 def recomendar_filmes():
     screen3 = Tk()
     screen3.title('Recomendador de Filmes')
     screen3.geometry('675x300+400+120')
+    screen3.configure(bg=dark_gray)
     screen3.wm_resizable(width=False, height=False)
-    label_3 = Label(screen3, text='Que tipos de filmes de cinema é que gosta?', font='Times 21')
+    label_3 = Label(screen3, text='Que tipos de filmes de cinema é que gosta?', font=('Times', 16, 'bold'), bg=dark_gray, fg=black)
     label_3.place(x=60, y=50)
 
-    input_4 = Entry(screen3, font='Times 16')
+    input_4 = Entry(screen3, font=('Times', 16, 'bold'), bg=white, fg=black)
     input_4.place(width=350, height=35, x=170, y=100)
 
     def search_movies():
@@ -55,18 +61,19 @@ def recomendar_filmes():
         auto.write(f'https://www.youtube.com/results?search_query= trailers filmes {movie}', interval=0.05)
         auto.press('Enter')
 
-    Button_5 = Button(screen3, text='Search', command=search_movies, font='Times 16')
+    Button_5 = Button(screen3, text='Search', command=search_movies, font=('Times', 16, 'bold'), bg=light_gray, fg=black)
     Button_5.place(width=175, height=75, x=260, y=200)
 
 def recomendar_musicas():
     screen4 = Tk()
     screen4.title('Recomendador de Musicas')
     screen4.geometry('675x300+400+120')
+    screen4.configure(bg=dark_gray)
     screen4.wm_resizable(width=False, height=False)
-    label_3 = Label(screen4, text='Que estilos/artistas de musica gosta?', font='Times 21')
+    label_3 = Label(screen4, text='Que estilos/artistas de musica gosta?', font=('Times', 16, 'bold'), bg=dark_gray, fg=black)
     label_3.place(x=110, y=50)
 
-    input_3 = Entry(screen4, font='Times 16')
+    input_3 = Entry(screen4, font=('Times', 16, 'bold'), bg=white, fg=black)
     input_3.place(width=350, height=35, x=170, y=100)
 
     def search_music():
@@ -77,22 +84,19 @@ def recomendar_musicas():
         auto.write(f'https://www.youtube.com/results?search_query= playlists musicas: {music}', interval=0.05)
         auto.press('Enter')
 
-    Button_4 = Button(screen4, text='Search', command=search_music, font='Times 16')
+    Button_4 = Button(screen4, text='Search', command=search_music, font=('Times', 16, 'bold'), bg=light_gray, fg=black)
     Button_4.place(width=175, height=75, x=260, y=200)
 
-
-Button_1 = tkinter.Button(screen, text='🎵Musicas🎵', command=recomendar_musicas, font='Times 16')
+Button_1 = Button(screen, text='🎵Musicas🎵', command=recomendar_musicas, font=('Times', 16, 'bold'), bg=light_gray, fg=black)
 Button_1.place(width=175, height=75, x=50, y=150)
 
-Button_2 = tkinter.Button(screen, text='🎥Filmes🎥', command=recomendar_filmes, font='Times 16')
+Button_2 = Button(screen, text='🎥Filmes🎥', command=recomendar_filmes, font=('Times', 16, 'bold'), bg=light_gray, fg=black)
 Button_2.place(width=175, height=75, x=265, y=150)
 
-Button_3 = tkinter.Button(screen, text='📚Livros📚',command=recomendar_livros, font='Times 16')
+Button_3 = Button(screen, text='📚Livros📚', command=recomendar_livros, font=('Times', 16, 'bold'), bg=light_gray, fg=black)
 Button_3.place(width=175, height=75, x=480, y=150)
 
-label_1 = Label(screen, text='Recomendar...', font='Times 21')
+label_1 = Label(screen, text='Recomendar...', font=('Times', 16, 'bold'), bg=dark_gray, fg=black)
 label_1.place(x=270, y=100)
-
-
 
 screen.mainloop()
