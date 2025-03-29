@@ -1,0 +1,56 @@
+import cap
+import numpy as np
+import cv2
+global cv2
+webcam = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = webcam.read()
+    width = int(webcam.get(3))
+    height = int(webcam.get(4))
+
+    # Criar uma imagem do tamanho da frame da webcam e por todos os pixeis a "zero"
+    image = np.zeros(frame.shape, np.uint8)
+
+    # Resize the frame a metade no eixo de x e y
+    small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
+
+    # Preencher a image com a frame redimensionada
+    image[:height // 2, :width // 2] = small_frame
+    image[height // 2:, :width // 2] = small_frame
+    image[:height // 2, width // 2:] = small_frame
+    image[height // 2:, width // 2:] = small_frame
+
+    # Preencher a image com a frame redimensionada c/ rotações das small_frame's
+    image[:height // 2, :width // 2] = small_frame #frame "normal"
+
+    streched_frame = cv2.resize(small_frame, (240, 320))
+    # rotate 90 counterclockwise
+    image[height // 2:, :width // 2] = cv2.rotate(streched_frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
+
+    # rotate 90 clockwise
+    image[:height // 2, width // 2:] = cv2.rotate(streched_frame, cv2.ROTATE_90_CLOCKWISE)
+
+    # rotate 180
+    image[height // 2:, width // 2:] = cv2.rotate(small_frame, cv2.ROTATE_180)
+
+
+
+
+    img = cv2.line(image, (160, 320), (320, 640), (255, 90, 88), 9)
+    img_1 = cv2.line(image, (640, 480), (320, 240), (0, 0, 255), 5)
+    img_2 = cv2.line(image, (0, 10), (0, 0), (0, 0, 255), 5)
+    img_3 = cv2.rectangle(image, (0, 0), (320, 240), (0, 0, 255), 5)
+    img_4 = cv2.circle(image,(480, 120), 60, (120, 89, 90), -1)
+    img_5 = cv2.putText(image, text="E", org=(240, 300), fontScale= 1, fontFace=1,
+                  color=(255, 0, 0), thickness=1, lineType= cv2.LINE_4, bottomLeftOrigin=True)
+
+
+
+    cv2.imshow('frame', image)
+
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+webcam.release()
+cv2.destroyAllWindows()
