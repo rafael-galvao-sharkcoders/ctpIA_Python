@@ -1,0 +1,55 @@
+import cv2
+import numpy as np
+import tkinter as tk
+
+webcam = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = webcam.read()
+    width = int(webcam.get(3))
+    height = int(webcam.get(4))
+
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    lower_blue = np.array([100, 100, 50])
+    upper_blue = np.array([130, 255, 255])
+
+    lower_red = np.array([0, 100, 100])
+    upper_red = np.array([10, 255, 255])
+
+    lower_green = np.array([35, 50, 50])
+    upper_green = np.array([85, 255, 255])
+
+    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+    mask_2 = cv2.inRange(hsv, lower_red, upper_red)
+
+    mask_3 = cv2.inRange(hsv, lower_green, upper_green)
+
+    mask = cv2.bitwise_and(mask, mask)
+
+    mask_2 = cv2.bitwise_and(mask_2, mask_2)
+
+    mask_3 = cv2.bitwise_and(mask_3, mask_3)
+
+    result = cv2.bitwise_and(frame, frame, mask=mask)
+
+    result_2 = cv2.bitwise_and(frame, frame, mask=mask_2)
+
+    result_3 = cv2.bitwise_and(frame, frame, mask=mask_3)
+
+    #cv2.imshow('frame(normal)', mask)
+
+    cv2.imshow('frame(azul)', result)
+
+    cv2.imshow('frame(vermelhos)', result_2)
+
+    cv2.imshow('frame(verdes)', result_3)
+
+
+
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+webcam.release()
+cv2.destroyAllWindows()
